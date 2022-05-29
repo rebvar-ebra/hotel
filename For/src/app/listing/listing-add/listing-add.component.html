@@ -1,0 +1,94 @@
+<app-nav-admin></app-nav-admin>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Add Listing</h1>
+
+    </div>
+
+
+    <div class="row g-8">
+        <div class="col-md-5 col-lg-4 order-md-last">
+            <form class="card p-2" #listingAddForm="ngForm" (ngSubmit)="add(listingAddForm)">
+
+                <div class="col-12">
+                    <input type="text" class="form-control" placeholder="Listing ID" #listing_id="ngModel"
+                        [(ngModel)]="model.listing_id" name="listing_id" id="listing_id" required>
+                    <div *ngIf="listing_id.invalid&&listing_id.dirty" class="aler alert-danger">Listing Id required
+                    </div>
+                </div>
+                <br>
+                <div class="col-12">
+                    <input type="text" class="form-control" placeholder="Listing Title" #listing_title="ngModel"
+                        [(ngModel)]="model.listing_title" name="listing_title" id="listing_title" required>
+                    <div *ngIf="listing_title.invalid&&listing_title.dirty" class="aler alert-danger">Listing Title
+                        required
+                    </div>
+                </div>
+                <br>
+                <div class="col-12">
+                    <textarea type="text" class="form-control" placeholder="Description" #description="ngModel"
+                        [(ngModel)]="model.description" name="description" id="description" required>
+                        </textarea>
+                    <div *ngIf="description.invalid&&description.dirty" class="aler alert-danger">Description
+                        required
+                    </div>
+                </div>
+                <br>
+                <div class="col-12">
+                    <input type="text" class="form-control" placeholder="Address" #street="ngModel"
+                        [(ngModel)]="model.street" name="street" id="street" required>
+                    <div *ngIf="street.invalid&&street.dirty" class="aler alert-danger">Address
+                        required
+                    </div>
+                </div>
+                <br>
+                <div class="col-12">
+                    <input type="text" class="form-control" placeholder="City" #city="ngModel" [(ngModel)]="model.city"
+                        name="city" id="city" required>
+                    <div *ngIf="city.invalid&&city.dirty" class="aler alert-danger">City
+                        required
+                    </div>
+                </div>
+                <br>
+                <div class="col-12">
+                    <input type="text" class="form-control" placeholder="Postal Code" #postal_code="ngModel"
+                        [(ngModel)]="model.postal_code" name="postal_code" id="postal_code" required>
+                    <div *ngIf="postal_code.invalid&&postal_code.dirty" class="aler alert-danger">Postal Code
+                        required
+                    </div>
+                </div>
+                <br>
+                <div class="col-12">
+                    <input type="text" class="form-control" placeholder="Price" #price="ngModel"
+                        [(ngModel)]="model.price" name="price" id="price" required>
+                    <div *ngIf="price.invalid&&price.dirty" class="aler alert-danger">Price
+                        required
+                    </div>
+                </div>
+                <br>
+                <div class="col-12">
+                    <input type="email" class="form-control" placeholder="Email" #email="ngModel"
+                        [(ngModel)]="model.email" name="email" id="email" required>
+                    <div *ngIf="email.invalid&&email.dirty" class="aler alert-danger">Email
+                        required
+                    </div>
+                </div>
+                <input type="text" #username="ngModel" [(ngModel)]="model.username" name="username" id="username" hidden
+                    [value]='username'>
+                <input type="text" #type="ngModel" [(ngModel)]="model.type" name="type" id="type" value={{type}} hidden>
+                <input type="date" #created="ngModel" [(ngModel)]="model.created" name="created" id="created"
+                    value={{date}} hidden>
+                <br>
+                <button class="w-25 btn btn-primary " type="submit" [disabled]="listingAddForm.invalid">Add</button>
+            </form>
+
+        </div>
+    </div>
+    <br><br><br><br><br>
+
+</main>
+<script>
+    document.getElementById('created').value = moment().format('YYYY-MM-DD');
+</script>

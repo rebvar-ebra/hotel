@@ -1,0 +1,35 @@
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <input class="form-control form-control-dark w-50" type="text" placeholder="Search by username"
+            aria-label="Search" id="listingName" [(ngModel)]="filterText">
+        <br><br>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+            <div class="col" *ngFor="let user of users | userFilter:filterText ">
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">Username: {{user.username}}</h5>
+                        <hr>
+                        <p class="card-text">Name: {{user.firstname }} {{user.lastname}}
+                        </p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">Email: {{user.email}}</li>
+                    </ul>
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">User type: {{user.type}}</li>
+                    </ul>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

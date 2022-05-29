@@ -1,0 +1,45 @@
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <input class="form-control form-control-dark w-50" type="text" placeholder="Search by name" aria-label="Search"
+            id="listingName" [(ngModel)]="filterText">
+        <br><br>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+            <div class="col" *ngFor="let list of listing | listingFilter:filterText">
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">{{list.listing_title}}</h5>
+                        <p class="card-text">{{list.description}}
+                        </p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Address: {{list.street}} {{list.city}} {{list.postal_code}} </li>
+                        <li class="list-group-item">Price: {{list.price | currency: "USD"}}</li>
+                    </ul>
+                    <div class="card-body">
+
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+
+                                <a *ngIf="isloggedInUser()==true" [routerLink]="['/listingdetails', list.id]"
+                                    class="card-link"> <button type="button"
+                                        class="btn btn-sm btn-primary">Book</button></a>
+
+
+                            </div>
+                            <small class="text-muted">Posted: {{list.created | date}}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<br><br><br>

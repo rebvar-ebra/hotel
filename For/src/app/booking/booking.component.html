@@ -1,0 +1,44 @@
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <input class="form-control form-control-dark w-50" type="text" placeholder="Search by username"
+            aria-label="Search" id="listingName" [(ngModel)]="filterText">
+        <br><br>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+            <div class="col" *ngFor="let book of booking | bookingFilter:filterText ">
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">Booked By: {{book.username}}</h5>
+                        <hr>
+                        <p class="card-text">Starting Date: {{book.booking_start | date}}
+                        </p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">End date: {{book.booking_end | date }}</li>
+                        <li class="list-group-item">Listing Id: {{book.listing_id}}</li>
+                        <li class="list-group-item">Booking Id: {{book.booking_id}}</li>
+
+                    </ul>
+                    <div class="card-body">
+
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+
+
+                            </div>
+                            <small class="text-muted">Booking Date: {{book.booking_date | date}}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

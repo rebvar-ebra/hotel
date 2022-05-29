@@ -1,0 +1,52 @@
+<app-nav-user></app-nav-user>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Hi {{storage}}, here is your booking list.</h1>
+
+    </div>
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <br><br>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+                <div class="col" *ngFor="let book of bookingByUserName ">
+                    <div class="card shadow-sm">
+
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">Booked By: {{book.username}}</h5>
+                            <hr>
+                            <p class="card-text">Starting Date: {{book.booking_start | date}}
+                            </p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+
+                            <li class="list-group-item">End date: {{book.booking_end | date }}</li>
+                            <li class="list-group-item">Listing Id: {{book.listing_id}}</li>
+                            <li class="list-group-item">Booking Id: {{book.booking_id}}</li>
+
+                        </ul>
+                        <div class="card-body">
+
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+
+
+                                </div>
+                                <small class="text-muted">Booking Date: {{book.booking_date | date}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</main>

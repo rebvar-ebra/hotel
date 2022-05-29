@@ -1,0 +1,44 @@
+<br><br><br>
+<main class="form-signin">
+    <form #userAddForm="ngForm" (ngSubmit)="add(userAddForm)">
+
+        <h1 class="h3 mb-3 fw-normal">Create Account</h1>
+
+        <div class="form-floating">
+            <input type="text" class="form-control" #username="ngModel" [(ngModel)]="model.username" name="username"
+                id="username" placeholder="Username">
+            <label for="username">Username</label>
+            <div *ngIf="username.invalid&&username.dirty" class="aler alert-danger">Username required </div>
+        </div>
+        <div class="form-floating">
+            <input type="text" class="form-control" #firstname="ngModel" [(ngModel)]="model.firstname" name="firstname"
+                id="firstname" placeholder="First Name">
+            <label for="firstname">First Name</label>
+            <div *ngIf="firstname.invalid&&firstname.dirty" class="aler alert-danger">Firstname required </div>
+        </div>
+        <div class="form-floating">
+            <input type="text" class="form-control" #lastname="ngModel" [(ngModel)]="model.lastname" name="lastname"
+                id="lastname" placeholder="Last Name">
+            <label for="lastname">Last Name</label>
+            <div *ngIf="lastname.invalid&&lastname.dirty" class="aler alert-danger">Lastname required </div>
+        </div>
+        <div class="form-floating">
+            <input type="text" class="form-control" #email="ngModel" [(ngModel)]="model.email" name="email" id="email"
+                placeholder="Email">
+            <label for="email">Email</label>
+            <div *ngIf="firstname.invalid&&firstname.dirty" class="aler alert-danger">Firstname required </div>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" #password="ngModel" [(ngModel)]="model.password" name="password"
+                id="password" placeholder="Password">
+            <label for="email">Password</label>
+            <div *ngIf="password.invalid&&email.dirty" class="aler alert-danger">Password required </div>
+        </div>
+        <input type="text " class="form-control" #type="ngModel" [(ngModel)]="model.type" name="type" id="type" hidden>
+
+
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+        <a [routerLink]="['/login']"> Already have an account ?</a>
+
+    </form>
+</main>

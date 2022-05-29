@@ -1,0 +1,61 @@
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+            <div class="col">
+                <div class="card shadow-sm">
+
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">{{listingDetails.listing_title}}</h5>
+                        <p class="card-text">{{listingDetails.description}}
+                        </p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Address: {{listingDetails.street}} {{listingDetails.city}}
+                            {{listingDetails.postal_code}} </li>
+                        <li class="list-group-item">Price: {{listingDetails.price | currency: "USD"}}</li>
+                    </ul>
+                    <div class="card-body">
+
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+
+
+                            </div>
+                            <small class="text-muted">Posted: {{listingDetails.created | date}}</small>
+                        </div>
+                    </div>
+                </div>
+                <form class="" #listingAddForm="ngForm" (ngSubmit)="add(listingAddForm)">
+                    <div class="col-12">
+                        <div class="">
+                            <label for="booking_start">Starting Date </label>
+                            <input class="form-control" placeholder="yyyy-mm-dd" name="booking_start" id="booking_start"
+                                [(ngModel)]="model.booking_start" ngbDatepicker>
+
+                        </div>
+                        <div class="">
+                            <label for="booking_end">End Date </label>
+                            <input class="form-control" placeholder="yyyy-mm-dd" name="booking_end" id="booking_end"
+                                [(ngModel)]="model.booking_end" ngbDatepicker>
+
+                        </div>
+                    </div>
+                    <br><br><br>
+                    <button class="btn btn-primary" type="submit">Book</button>
+                </form>
+            </div>
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
